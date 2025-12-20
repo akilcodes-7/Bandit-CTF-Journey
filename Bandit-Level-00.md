@@ -20,3 +20,5 @@ The password for the next level is stored inside a file named `readme` in the ho
 ```bash
 ls
 cat readme
+
+<img width="764" height="173" alt="image" src="https://github.com/user-attachments/assets/cb18b86c-fbc0-4934-8d71-f67d9a1a4a32" />
