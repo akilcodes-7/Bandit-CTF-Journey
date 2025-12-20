@@ -12,7 +12,10 @@ The password for the next level is stored inside a file named readme in the home
 
 ### 🧪 Commands Used
 - ls  
-- cat readme  
+- cat readme
+
+![Bandit Level 00 Screenshot](screenshots/level00.png)
+
 
 ### 🧠 Explanation
 The ls command is used to list the files present in the current directory.  
