@@ -12,7 +12,7 @@ The password for the next level is stored in a file whose name contains spaces. 
 
 ### 🧪 Commands Used
 - ls  
-- cat spaces\ in\ this\ filename  
+- cat -- --spaces\ in\ this\ filename--  
 
 ![Bandit Level 02 Screenshot](screenshots/level02.png)
 
@@ -21,7 +21,7 @@ MNk8KNH3Usi14PLUODpFqfxLP1Smx
 
 ### 🧠 Explanation
 The `ls` command lists the files in the directory and shows a file with spaces in its name.  
-The `cat spaces\ in\ this\ filename` command uses backslashes to escape the spaces, allowing the file to be read correctly.  
+The `cat -- --spaces\ in\ this\ filename--` command uses backslashes to escape the spaces, allowing the file to be read correctly.  
 The output of the file reveals the password required to proceed to the next level.
 
 ### 🔐 Concept Learned
