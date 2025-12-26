@@ -28,22 +28,26 @@ A secure SSL service running on localhost provides an RSA private key. This key 
 
 ### 📸 Screenshots
 
-**Step 1 – RSA Private Key Received from SSL Service**  
+**Step 1 – RSA Private Key Received from SSL Service** 
+
 ![Bandit Level 16 – Key Received](screenshots/level16_1.png)
 
 ---
 
-**Step 2 – Saving the RSA Private Key**  
+**Step 2 – Saving the RSA Private Key** 
+
 ![Bandit Level 16 – Key Saved](screenshots/level16_2.png)
 
 ---
 
 **Step 3 – SSH Login Using Private Key**  
+
 ![Bandit Level 16 – SSH Login](screenshots/level16_3.png)
 
 ---
 
-**Step 4 – Retrieving the Next Level Password**  
+**Step 4 – Retrieving the Next Level Password**
+
 ![Bandit Level 16 – Password](screenshots/level16_4.png)
 
 ---
