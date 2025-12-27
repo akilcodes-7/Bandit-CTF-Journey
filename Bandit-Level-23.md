@@ -31,11 +31,13 @@ By placing a shell script in this directory that copies the password to a readab
 ### 📸 Screenshots
 
 **Step 1 – Cronjob Configuration & Script**  
+
 ![Bandit Level 23 – Cronjob](screenshots/level23_1.png)
 
 ---
 
 **Step 2 – Payload Execution & Password Retrieval**  
+
 ![Bandit Level 23 – Password](screenshots/level23_2.png)
 
 ---
