@@ -24,7 +24,7 @@
 ### 🔑 Credentials Provided  
 
 - **Username:** bandit5  
-- **Password:** koReBOKuIDDepwhWk7jZC0RTdopnAYKh  
+- **Password:** 4oQYVPkxZ0OEOO5pTW81FB8j8lxXGUQw 
 
 
 ---
