@@ -1,28 +1,98 @@
 ## Bandit Level 09 → Level 10
 
-### 🎯 Objective
-Log in to the Bandit game as bandit9 and obtain the password for the next level from a file by locating a readable string that contains repeated equals signs.
 
-### 🔑 Credentials Provided
-Username: bandit9  
-Password: Obtained from previous level  
+### 🎯 Objective  
 
-### 🔍 Method of Solve
-The password for the next level is hidden inside a file named `data.txt`. The file contains many non-readable characters, but the password appears as a readable string that includes multiple `=` characters. Filtering readable strings helps identify it.
+- Log in as `bandit9`  
+- Locate the `data.txt` file  
+- Identify the readable string containing multiple `=` characters  
+- Retrieve the password for the next level  
 
-### 🧪 Commands Used
-- strings data.txt | grep -e "="
+
+---
+
+### 🧭 Quick Action Summary  
+
+- Login as `bandit9`  
+- Extract readable strings from `data.txt`  
+- Filter lines containing `=`  
+- Identify the password  
+
+
+---
+
+### 🔑 Credentials Provided  
+
+- **Username:** bandit9  
+- **Password:** 4CKMh1JI91bUIZZPXDqGana4vxAg0JM  
+
+
+---
+
+### 🔍 Method of Solve  
+
+The password for the next level is hidden inside the `data.txt` file.  
+The file contains binary data, but the password appears as a readable string that includes multiple equals (`=`) characters.
+
+Steps followed:  
+- Extract all readable strings  
+- Filter strings containing `=`  
+- Identify the correct password  
+
+
+---
+
+### 🧪 Commands Used  
+
+- `strings data.txt | grep -e "="`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `strings data.txt` | Extracts readable text from a binary or mixed file |
+| `grep -e "="` | Filters lines that contain the `=` character |
+
+
+---
+
+### 📸 Screenshot Evidence  
 
 ![Bandit Level 09 Screenshot](screenshots/level09.png)
 
-### 🔑 Next Level Password
-FGUW5ilLVJrxX9kMYMntL4NgbpfMiqey
 
-### 🧠 Explanation
-The `strings data.txt` command extracts all human-readable strings from the file.  
-The output is piped to `grep -e "="` to filter lines that contain repeated equals signs.  
-Among the results, the line that clearly stands out contains the password required to proceed to the next level.
+---
 
-### 🔐 Concept Learned
-This level demonstrates how to extract meaningful information from files containing mixed or binary data.  
-It highlights pattern-based filtering using `grep` together with `strings` to efficiently locate hidden credentials.
+### 🔑 Next Level Password  
+
+```
+FGUW5iLLvJrXx9kMYMnlN4MgbpfMiqey
+```
+
+
+---
+
+### 🧠 Explanation  
+
+- The `strings` command extracts human-readable text from the file  
+- The `grep -e "="` filter isolates strings that contain repeated equals signs  
+- One of these strings contains the password for the next level  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level shows how to extract meaningful data from binary or mixed-content files.  
+It demonstrates the power of pattern matching when searching for hidden credentials.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Credentials hidden inside binary files can still be recovered using string analysis.  
+Security controls should ensure that sensitive data is not stored in unprotected files.
