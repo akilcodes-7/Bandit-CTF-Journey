@@ -1,85 +1,130 @@
 ## Bandit Level 25 → Level 26
 
-### 🎯 Objective
-Log in to the Bandit game as bandit25 and obtain the password for the next level by escaping the restricted shell used by bandit26.
+
+### 🎯 Objective  
+
+- Log in as `bandit25`  
+- Obtain the SSH private key  
+- Access the restricted `bandit26` account  
+- Escape the restricted shell  
+- Retrieve the password for the next level  
+
 
 ---
 
-### 🔑 Credentials Provided
-Username: bandit25  
-Password: Obtained from previous level  
+### 🧭 Quick Action Summary  
+
+- Login as `bandit25`  
+- Copy the SSH private key  
+- Connect as `bandit26`  
+- Trigger the `more` pager  
+- Escape into a Bash shell  
+- Read the password  
+
 
 ---
 
-### 🔍 Method of Solve
-The bandit26 account does not use a normal Bash shell. Instead, it runs a script that displays text using the `more` pager.  
-By forcing `more` into interactive mode and escaping into Vim, a real Bash shell can be spawned to read the password.
+### 🔑 Credentials Provided  
+
+- **Username:** bandit25  
+- **Password:** iCi86ttT4KSNe1armKiwbQNmB3YJP3q4  
+
 
 ---
 
-### 🧪 Commands Used
-- ls  
-- file bandit26.sshkey  
-- scp -P 2220 bandit25@bandit.labs.overthewire.org:/home/bandit25/bandit26.sshkey .  
-- chmod 600 bandit26.sshkey  
-- ssh -i bandit26.sshkey bandit26@bandit.labs.overthewire.org -p 2220  
-- v  
-- :set shell=/bin/bash  
-- :shell  
-- cat /etc/bandit_pass/bandit26  
+### 🔍 Method of Solve  
+
+The `bandit26` account uses a restricted program instead of a normal shell.  
+By triggering the `more` pager and escaping into Vim, a real Bash shell can be spawned.
+
+Steps followed:  
+- Copy the SSH private key  
+- Log in as `bandit26`  
+- Force `more` into interactive mode  
+- Escape to Vim  
+- Launch a Bash shell  
+- Read the password file  
+
 
 ---
 
-### 📸 Screenshots
+### 🧪 Commands Used  
+
+- `ls`  
+- `file bandit26.sshkey`  
+- `scp -P 2220 bandit25@bandit.labs.overthewire.org:/home/bandit25/bandit26.sshkey .`  
+- `chmod 600 bandit26.sshkey`  
+- `ssh -i bandit26.sshkey bandit26@bandit.labs.overthewire.org -p 2220`  
+- `v`  
+- `:set shell=/bin/bash`  
+- `:shell`  
+- `cat /etc/bandit_pass/bandit26`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `scp` | Copies the private key from the remote server |
+| `ssh -i` | Logs in using the private key |
+| `v` | Opens Vim from the pager |
+| `:shell` | Launches a real shell from Vim |
+| `cat bandit26` | Reads the next level password |
+
+
+---
+
+### 📸 Screenshot Evidence  
 
 **Step 1 – Locating the SSH Private Key**  
-
 ![Bandit Level 25 – Key Found](screenshots/level25_1.png)
 
----
-
 **Step 2 – Copying the Key Using SCP**  
-
 ![Bandit Level 25 – SCP Transfer](screenshots/level25_2.png)
 
----
-
 **Step 3 – Logging in and Triggering the `more` Pager**  
-
 ![Bandit Level 25 – Restricted Shell](screenshots/level25_3.png)
 
----
-
-**Step 4 – Escaping to Vim and Opening a Bash Shell**
-
+**Step 4 – Escaping to Vim and Opening a Bash Shell**  
 ![Bandit Level 25 – Vim Escape](screenshots/level25_4.png)
 
----
-
 **Step 5 – Reading the Next Level Password**  
-
 ![Bandit Level 25 – Password](screenshots/level25_5.png)
 
----
-
-### 🔑 Next Level Password
-s07r3xxk0MXfdq0fPrv9L3jJBUOgCZ
 
 ---
 
-### 🧠 Explanation
-The SSH private key allows logging in as bandit26, but the account runs a restricted program that displays text using the `more` pager.
+### 🔑 Next Level Password  
 
-To force `more` into interactive mode, the terminal window is intentionally made small so that the text does not fit on one screen.  
-This causes `more` to pause and wait for input.
+```
+0773xxkkOMxfdqOfPRv9L3jBUOGCZ
+```
 
-Pressing `v` inside `more` opens Vim.  
-Inside Vim, `:set shell=/bin/bash` changes the shell, and `:shell` launches a real Bash shell.
-
-Once full shell access is obtained, `cat /etc/bandit_pass/bandit26` reveals the password for the next level.
 
 ---
 
-### 🔐 Concept Learned
-This level demonstrates restricted shell bypassing.  
-It shows how pager programs and text editors can be abused to escape sandboxed environments and gain full command-line access.
+### 🧠 Explanation  
+
+- The private key allows access to `bandit26`  
+- The restricted program launches the `more` pager  
+- `more` can be escaped into Vim  
+- Vim allows spawning a full shell  
+- The password is read from the system directory  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level demonstrates how restricted shells can be bypassed.  
+It shows how pagers and editors can be abused to gain full command-line access.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Restricted environments must prevent editor escapes.  
+Otherwise, attackers can bypass sandboxed shells and gain full control.
