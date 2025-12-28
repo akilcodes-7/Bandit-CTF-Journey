@@ -1,60 +1,108 @@
 ## Bandit Level 24 → Level 25
 
-### 🎯 Objective
-Log in to the Bandit game as bandit24 and obtain the password for the next level by brute-forcing a 4-digit PIN required by a local network service.
+
+### 🎯 Objective  
+
+- Log in as `bandit24`  
+- Connect to the local authentication service  
+- Brute-force the 4-digit PIN  
+- Retrieve the password for the next level  
+
 
 ---
 
-### 🔑 Credentials Provided
-Username: bandit24  
-Password: Obtained from previous level  
+### 🧭 Quick Action Summary  
+
+- Login as `bandit24`  
+- Write a Python brute-force script  
+- Try all PINs from `0000` to `9999`  
+- Capture the correct response  
+- Extract the password  
+
 
 ---
 
-### 🔍 Method of Solve
-A daemon running on localhost port `30002` requires the current password and a 4-digit PIN to authenticate.  
-Since the PIN space is small (0000–9999), a brute-force attack can be performed using a Python script to test all possible PIN combinations until the correct one is found.
+### 🔑 Credentials Provided  
+
+- **Username:** bandit24  
+- **Password:** gb8KRRcsshuzXi0tUuR6ypOFjiZbf3G8  
+
 
 ---
 
-### 🧪 Commands Used
-- cd /tmp/ak  
-- ls -la  
-- nano ...ak.py  
-- python3 ...ak.py  
+### 🔍 Method of Solve  
+
+A service running on port `30002` requires the current password and a 4-digit PIN.  
+Because the PIN space is small, it can be brute-forced by testing every possible combination.
+
+Steps followed:  
+- Create a Python script  
+- Connect to the service repeatedly  
+- Send each PIN with the password  
+- Detect the correct response  
+
 
 ---
 
-### 📸 Screenshots
+### 🧪 Commands Used  
+
+- `cd /tmp/ak`  
+- `ls -la`  
+- `nano ...ak.py`  
+- `python3 ...ak.py`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `nano ...ak.py` | Creates the brute-force Python script |
+| `python3 ...ak.py` | Executes the brute-force attack |
+
+
+---
+
+### 📸 Screenshot Evidence  
 
 **Step 1 – Creating the Python Brute-Force Script**  
-
 ![Bandit Level 24 – Python Script](screenshots/level24_1.png)
 
----
-
 **Step 2 – Successful PIN Brute-Force and Password Retrieval**  
-
 ![Bandit Level 24 – Password Found](screenshots/level24_2.png)
 
----
-
-### 🔑 Next Level Password
-iCi8ttT4KSNe1armKiwbQNmB3YJP3g4
 
 ---
 
-### 🧠 Explanation
-The Python script opens a new socket connection to `127.0.0.1` on port `30002` for each PIN attempt.  
-For every value from `0000` to `9999`, it sends the current password along with the PIN.
+### 🔑 Next Level Password  
 
-The service responds with `"Wrong"` for incorrect attempts.  
-When the correct PIN is sent, the response changes and returns the password for bandit25.
+```
+iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
+```
 
-The script detects this success condition and prints both the valid PIN and the next level password.
 
 ---
 
-### 🔐 Concept Learned
-This level demonstrates controlled brute-force attacks against network services.  
-It highlights how limited key spaces can be exploited programmatically and reinforces the importance of rate-limiting and lockout mechanisms in secure systems.
+### 🧠 Explanation  
+
+- The script connects to the service on port `30002`  
+- Each 4-digit PIN is sent with the current password  
+- When the correct PIN is found, the service returns the password  
+- The script captures and prints the result  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level demonstrates how small key spaces can be brute-forced.  
+It highlights the risks of weak authentication mechanisms.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Services must implement rate-limiting and lockouts.  
+Without these, brute-force attacks can easily compromise accounts.
