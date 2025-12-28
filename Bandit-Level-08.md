@@ -1,30 +1,102 @@
 ## Bandit Level 08 → Level 09
 
-### 🎯 Objective
-Log in to the Bandit game as bandit8 and obtain the password for the next level from a file by identifying the unique line.
 
-### 🔑 Credentials Provided
-Username: bandit8  
-Password: Obtained from previous level  
+### 🎯 Objective  
 
-### 🔍 Method of Solve
-The password for the next level is stored inside a file named `data.txt`. The file contains many repeated lines, and the required password is the line that appears only once. Sorting and counting duplicate lines helps identify the unique entry.
+- Log in as `bandit8`  
+- Locate the `data.txt` file  
+- Identify the unique line  
+- Retrieve the password for the next level  
 
-### 🧪 Commands Used
-- ls -alph  
-- sort data.txt | uniq -c  
+
+---
+
+### 🧭 Quick Action Summary  
+
+- Login as `bandit8`  
+- Sort the contents of `data.txt`  
+- Count duplicate lines  
+- Find the line that appears only once  
+- Extract the password  
+
+
+---
+
+### 🔑 Credentials Provided  
+
+- **Username:** bandit8  
+- **Password:** dfwvzFQi4mU0wfNbF0e9RoWskmLg7eEc  
+
+
+---
+
+### 🔍 Method of Solve  
+
+The password for the next level is stored inside a file named `data.txt`.  
+The file contains many duplicate lines, and the correct password is the only line that appears once.
+
+Steps followed:  
+- List the files  
+- Sort all lines in the file  
+- Count the occurrences of each line  
+- Identify the unique line  
+
+
+---
+
+### 🧪 Commands Used  
+
+- `ls -alph`  
+- `sort data.txt | uniq -c`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `ls -alph` | Displays all files including hidden ones |
+| `sort data.txt` | Sorts all lines in the file |
+| `uniq -c` | Counts the number of occurrences of each line |
+
+
+---
+
+### 📸 Screenshot Evidence  
 
 ![Bandit Level 08 Screenshot](screenshots/level08.png)
 
-### 🔑 Next Level Password
-4CKMh1JI91pXZ2P0gaGan4xvgAdJm
 
-### 🧠 Explanation
-The `ls -alph` command lists all files in the directory, showing the presence of `data.txt`.  
-The `sort data.txt` command sorts all lines alphabetically.  
-The output is piped to `uniq -c`, which counts how many times each line appears.  
-The line with a count of `1` is the unique line and contains the password for the next level.
+---
 
-### 🔐 Concept Learned
-This level demonstrates how to analyze repeated data using sorting and filtering techniques.  
-It highlights the effective use of command pipelines and text-processing utilities such as `sort` and `uniq` to extract meaningful information.
+### 🔑 Next Level Password  
+
+```
+4CKMh1JI91bUIZZPXDqGana4vxAg0JM
+```
+
+
+---
+
+### 🧠 Explanation  
+
+- The `sort` command arranges all lines alphabetically  
+- The `uniq -c` command counts how many times each line appears  
+- The line with a count of `1` is the unique entry and contains the password  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level demonstrates how to analyze repeated data using sorting and filtering.  
+It shows how text-processing tools can be combined to extract meaningful information.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Duplicate data can hide critical information.  
+Using counting and filtering techniques helps reveal hidden or unique entries in large datasets.
