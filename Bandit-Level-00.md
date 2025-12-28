@@ -1,42 +1,41 @@
-## Bandit Level 01 → Level 02
+## Bandit Level 00 → Level 01
 
 
 ### 🎯 Objective  
 
-- Log in as `bandit1`  
-- Locate the file named `-`  
-- Read the file to obtain the password for the next level  
+- Log in to the Bandit game using the given credentials  
+- Locate the `readme` file  
+- Retrieve the password for the next level  
 
 
 ---
 
 ### 🧭 Quick Action Summary  
 
-- Login as `bandit1`  
-- Identify the file named `-`  
-- Access the file using a relative path  
-- Extract the password for Level 02  
+- Login as `bandit0`  
+- List the files  
+- Read the `readme` file  
+- Extract the password  
 
 
 ---
 
 ### 🔑 Credentials Provided  
 
-- **Username:** bandit1  
-- **Password:** ZjlJTmM6FvvyRnrB2rfNWOZOTa6ip5If  
+- **Username:** bandit0  
+- **Password:** bandit0  
 
 
 ---
 
 ### 🔍 Method of Solve  
 
-The password for the next level is stored inside a file named `-`.  
-Because filenames starting with a hyphen are treated as command options, the file must be accessed using a relative path.
+The password for the next level is stored in a file named `readme` inside the home directory.  
+By listing the files and reading the file contents, the password can be obtained.
 
 Steps followed:  
-- List all files in the directory  
-- Use a relative path to safely open the file  
-- Read the file to retrieve the password  
+- List all files  
+- Read the `readme` file  
 
 
 ---
@@ -44,7 +43,7 @@ Steps followed:
 ### 🧪 Commands Used  
 
 - `ls`  
-- `cat ./-`  
+- `cat readme`  
 
 
 ---
@@ -53,15 +52,15 @@ Steps followed:
 
 | Command | Purpose |
 |--------|--------|
-| `ls` | Lists all files in the current directory |
-| `cat ./-` | Reads the file named `-` by treating it as a filename instead of an option |
+| `ls` | Lists the files in the directory |
+| `cat readme` | Displays the content of the password file |
 
 
 ---
 
 ### 📸 Screenshot Evidence  
 
-![Bandit Level 01 Screenshot](screenshots/level01.png)
+![Bandit Level 00 Screenshot](screenshots/level00.png)
 
 
 ---
@@ -69,7 +68,7 @@ Steps followed:
 ### 🔑 Next Level Password  
 
 ```
-263JGJPfgU6LtdEvfgWU1XP5yac29mFx
+ZjlJTmM6FvvyRnrB2rfNWOZOTa6ip5If
 ```
 
 
@@ -77,22 +76,22 @@ Steps followed:
 
 ### 🧠 Explanation  
 
-- The `ls` command reveals a file named `-` in the directory  
-- The `cat ./-` command forces the shell to treat `-` as a file  
-- This allows the contents of the file to be displayed correctly  
+- The `ls` command lists available files  
+- The `readme` file contains the password  
+- `cat readme` displays the password on screen  
 
 
 ---
 
 ### 🔐 Concept Learned  
 
-This level demonstrates how Linux handles filenames that begin with special characters.  
-It highlights why relative paths are required to avoid misinterpretation by the shell.
+This level introduces basic Linux file access.  
+It shows how sensitive data can be stored in simple text files.
 
 
 ---
 
 ### 🛡️ Security Insight  
 
-Files with special characters in their names can cause unexpected command behavior.  
-Using explicit paths prevents accidental misuse and improves command reliability.
+Passwords stored in plain text files are highly insecure.  
+Proper access controls and encryption should always be used.
