@@ -1,46 +1,100 @@
 ## Bandit Level 27 → Level 28
 
-### 🎯 Objective
-Log in to the Bandit game as bandit27 and obtain the password for the next level by accessing a private Git repository.
+
+### 🎯 Objective  
+
+- Log in as `bandit27-git`  
+- Access the private Git repository  
+- Read the stored file  
+- Retrieve the password for the next level  
+
 
 ---
 
-### 🔑 Credentials Provided
-Username: bandit27-git  
-Password: Obtained from previous level  
+### 🧭 Quick Action Summary  
+
+- Connect to the Git server over SSH  
+- Clone the private repository  
+- Enter the repository directory  
+- Read the README file  
+
 
 ---
 
-### 🔍 Method of Solve
-The password for the next level is stored inside a private Git repository owned by bandit27. Instead of logging into a shell, the repository must be accessed over SSH using Git and then the stored file must be read.
+### 🔑 Credentials Provided  
+
+- **Username:** bandit27-git  
+- **Password:** upsNc7VZarDX6oZC6GiR6ErwE1M0wGB  
+
 
 ---
 
-### 🧪 Commands Used
-- git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo  
-- cd repo  
-- cat README  
+### 🔍 Method of Solve  
+
+The password for the next level is stored inside a private Git repository.  
+Instead of a normal shell, Git is used to securely access and download the repository.
+
+Steps followed:  
+- Clone the repository over SSH  
+- Navigate into the repository  
+- Read the file containing the password  
+
 
 ---
 
-### 📸 Screenshot
+### 🧪 Commands Used  
+
+- `git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo`  
+- `cd repo`  
+- `cat README`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `git clone` | Downloads the private repository over SSH |
+| `cat README` | Displays the password stored in the repository |
+
+
+---
+
+### 📸 Screenshot Evidence  
 
 ![Bandit Level 27 Screenshot](screenshots/level27.png)
 
----
-
-### 🔑 Next Level Password
-Yz9ipL0sBcCeuG7m9uQFt8zNpS4HZRcN
 
 ---
 
-### 🧠 Explanation
-The `git clone` command connects to the remote Git server using SSH and downloads the private repository belonging to bandit27.  
-The `cd repo` command moves into the cloned repository directory.  
-The `cat README` command displays the contents of the README file, which contains the password for the next Bandit level.
+### 🔑 Next Level Password  
+
+```
+YZ9IpL0sBcCeuG7m9uQFt8ZnpS4HZRcN
+```
+
 
 ---
 
-### 🔐 Concept Learned
-This level demonstrates how private Git repositories can be accessed over SSH.  
-It highlights how sensitive data can be stored inside version-controlled repositories and how Git can be used to retrieve information from remote servers securely.
+### 🧠 Explanation  
+
+- Git connects to the remote server using SSH  
+- The private repository is downloaded locally  
+- The README file contains the password for the next level  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level demonstrates secure access to private Git repositories.  
+It highlights how Git can be used as a secure method of storing and retrieving sensitive data.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Sensitive data should not be stored in plaintext inside repositories.  
+Even private repositories can expose secrets if access is compromised.
