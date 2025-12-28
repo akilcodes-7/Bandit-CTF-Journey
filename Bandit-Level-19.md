@@ -1,47 +1,101 @@
 ## Bandit Level 19 → Level 20
 
-### 🎯 Objective
-Log in to the Bandit game as bandit19 and obtain the password for the next level by using a special executable file.
+
+### 🎯 Objective  
+
+- Log in as `bandit19`  
+- Identify the set-UID executable  
+- Use it to run commands as `bandit20`  
+- Retrieve the password for the next level  
+
 
 ---
 
-### 🔑 Credentials Provided
-Username: bandit19  
-Password: Obtained from previous level  
+### 🧭 Quick Action Summary  
+
+- Login as `bandit19`  
+- Locate the `bandit20-do` binary  
+- Use it to execute a privileged command  
+- Read the password file  
+
 
 ---
 
-### 🔍 Method of Solve
-A file named `bandit20-do` is a set-UID executable owned by bandit20.  
-When executed, it runs commands with the privileges of bandit20.  
-This allows reading the password file of bandit20.
+### 🔑 Credentials Provided  
+
+- **Username:** bandit19  
+- **Password:** cGWpMaKXWDUNpPAJwbYUGHv9szJ3j8  
+
 
 ---
 
-### 🧪 Commands Used
-- ls -la  
-- ./bandit20-do cat /etc/bandit_pass/bandit20  
+### 🔍 Method of Solve  
+
+A special executable file named `bandit20-do` is owned by `bandit20` and has the set-UID bit enabled.  
+When this file is executed, it runs commands with `bandit20` privileges.
+
+Steps followed:  
+- List files and check permissions  
+- Identify the set-UID binary  
+- Use it to run a command as `bandit20`  
+- Read the password file  
+
 
 ---
 
-### 📸 Screenshot
+### 🧪 Commands Used  
+
+- `ls -la`  
+- `./bandit20-do cat /etc/bandit_pass/bandit20`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `ls -la` | Displays file permissions and ownership |
+| `./bandit20-do cat ...` | Executes a command as `bandit20` using the set-UID binary |
+
+
+---
+
+### 📸 Screenshot Evidence  
+
 ![Bandit Level 19 Screenshot](screenshots/level19.png)
 
----
-
-### 🔑 Next Level Password
-0qXahG8ZJOVMNGhs7iOWsCfZyXOUbY0
 
 ---
 
-### 🧠 Explanation
-The `ls -la` command lists all files and shows file permissions.  
-The file `bandit20-do` has the set-UID bit enabled, meaning it runs with the permissions of its owner (bandit20).
+### 🔑 Next Level Password  
 
-Running `./bandit20-do cat /etc/bandit_pass/bandit20` executes the `cat` command as bandit20, allowing access to bandit20’s password file and revealing the next level password.
+```
+oqXahG8ZjOVMN9Ghs710WsCfZyXOUbY0
+```
+
 
 ---
 
-### 🔐 Concept Learned
-This level demonstrates the use of **set-UID binaries**.  
-It shows how programs can temporarily run with higher privileges, a concept that is critical in Linux privilege escalation and system security.
+### 🧠 Explanation  
+
+- The set-UID bit allows the binary to run with the owner’s privileges  
+- `bandit20-do` is owned by `bandit20`  
+- Using it allows access to `/etc/bandit_pass/bandit20`  
+- The file contains the password for the next level  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level demonstrates the use of set-UID binaries.  
+It shows how controlled privilege escalation works in Linux systems.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Misconfigured set-UID binaries can lead to serious security risks.  
+They must be carefully controlled to prevent unauthorized privilege escalation.
