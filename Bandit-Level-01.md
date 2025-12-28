@@ -1,29 +1,98 @@
 ## Bandit Level 01 → Level 02
 
-### 🎯 Objective
-Log in to the Bandit game as bandit1 and obtain the password for the next level from a file named `-`.
 
-### 🔑 Credentials Provided
-Username: bandit1  
-Password: Obtained from previous level  
+### 🎯 Objective  
 
-### 🔍 Method of Solve
-The password for the next level is stored in a file named `-`. Since files starting with a hyphen are treated as command options, the file must be accessed using a relative path to avoid misinterpretation.
+- Log in as `bandit1`  
+- Locate the file named `-`  
+- Read the file to obtain the password for the next level  
 
-### 🧪 Commands Used
-- ls  
-- cat ./-  
+
+---
+
+### 🧭 Quick Action Summary  
+
+- Login as `bandit1`  
+- Identify the file named `-`  
+- Access the file using a relative path  
+- Extract the password for Level 02  
+
+
+---
+
+### 🔑 Credentials Provided  
+
+- **Username:** bandit1  
+- **Password:** Obtained from previous level  
+
+
+---
+
+### 🔍 Method of Solve  
+
+The password for the next level is stored inside a file named `-`.  
+Because filenames starting with a hyphen are treated as command options, the file must be accessed using a relative path.
+
+Steps followed:  
+- List all files in the directory  
+- Use a relative path to safely open the file  
+- Read the file to retrieve the password  
+
+
+---
+
+### 🧪 Commands Used  
+
+- `ls`  
+- `cat ./-`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `ls` | Lists all files in the current directory |
+| `cat ./-` | Reads the file named `-` by treating it as a file instead of an option |
+
+
+---
+
+### 📸 Screenshot Evidence  
 
 ![Bandit Level 01 Screenshot](screenshots/level01.png)
 
-### 🔑 Next Level Password
+
+---
+
+### 🔑 Next Level Password  
+
+```
 263JGJPfgU6LtdEvfgWU1XP5yac29mFx
+```
 
-### 🧠 Explanation
-The `ls` command is used to list the files present in the directory and reveals a file named `-`.  
-The `cat ./-` command explicitly tells the shell to treat `-` as a file in the current directory instead of an option.  
-This allows the contents of the file to be read successfully.
 
-### 🔐 Concept Learned
-This level demonstrates how Linux interprets filenames that start with special characters.  
-It highlights the importance of using relative paths to safely access files during enumeration.
+---
+
+### 🧠 Explanation  
+
+- The `ls` command reveals a file named `-` in the directory  
+- The `cat ./-` command forces the shell to treat `-` as a filename  
+- This allows the contents of the file to be displayed correctly  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level demonstrates how Linux handles filenames that start with special characters.  
+It shows why relative paths are important when working with files that could otherwise be interpreted as command options.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Improper handling of special characters in filenames can lead to command errors or unintended behavior.  
+Using explicit paths helps prevent misinterpretation and improves command reliability.
