@@ -1,43 +1,97 @@
 ## Bandit Level 14 → Level 15
 
-### 🎯 Objective
-Log in to the Bandit game as bandit14 and obtain the password for the next level by sending the current password to a service running on localhost.
+
+### 🎯 Objective  
+
+- Log in as `bandit14`  
+- Connect to the local service on port 30000  
+- Send the current password  
+- Retrieve the password for the next level  
+
 
 ---
 
-### 🔑 Credentials Provided
-Username: bandit14  
-Password: Obtained from previous level  
+### 🧭 Quick Action Summary  
+
+- Login as `bandit14`  
+- Connect to `localhost` on port `30000`  
+- Provide the current password  
+- Receive the new password  
+
 
 ---
 
-### 🔍 Method of Solve
-A network service is running on port 30000 of the local machine. By sending the current password to this service using a network connection, the server returns the password for the next level.
+### 🔑 Credentials Provided  
+
+- **Username:** bandit14  
+- **Password:** MU4WWeTyJk8R0of1qgmcBPaLh7LDCPvS  
+
 
 ---
 
-### 🧪 Commands Used
-- nc localhost 30000  
+### 🔍 Method of Solve  
+
+A service is running on port `30000` on the local machine.  
+By sending the current password to this service, it responds with the password for the next level.
+
+Steps followed:  
+- Connect to the service using Netcat  
+- Enter the current password  
+- Receive the returned password  
+
 
 ---
 
-### 📸 Screenshot
+### 🧪 Commands Used  
+
+- `nc localhost 30000`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `nc localhost 30000` | Connects to the local service running on port 30000 |
+
+
+---
+
+### 📸 Screenshot Evidence  
+
 ![Bandit Level 14 Screenshot](screenshots/level14.png)
 
----
-
-### 🔑 Next Level Password
-8xCjmmoKp6GLLhHFAZIG5Tmu4M2tKJQO
 
 ---
 
-### 🧠 Explanation
-The `nc` (Netcat) command is used to create a TCP connection to the local service running on port 30000.  
-After connecting, the current level password is entered.  
-The service verifies the password and returns the password for the next level as a response.
+### 🔑 Next Level Password  
+
+```
+8xCjnmgoKbGLhFAZlGE5Tmu4M2tKJQo
+```
+
 
 ---
 
-### 🔐 Concept Learned
+### 🧠 Explanation  
+
+- The `nc` command opens a TCP connection to the local service  
+- After entering the current password, the service validates it  
+- The service returns the password for the next level  
+
+
+---
+
+### 🔐 Concept Learned  
+
 This level introduces basic network communication using Netcat.  
-It demonstrates how services can accept input over a network connection and respond with sensitive information, a common technique used in penetration testing and service enumeration.
+It shows how services can receive input and return sensitive information over a network connection.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Network services that return sensitive data should use strong authentication and encryption.  
+Unprotected services can expose credentials to unauthorized users.
