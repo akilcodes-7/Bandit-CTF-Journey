@@ -26,6 +26,7 @@ Bandit32 provides a restricted shell that only accepts uppercase input. To execu
 ### 📸 Screenshot
 
 **Escaping the Uppercase Shell and Reading the Password**
+
 ![Bandit Level 32 Screenshot](screenshots/level32.png)
 
 ---
