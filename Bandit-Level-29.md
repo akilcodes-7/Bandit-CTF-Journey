@@ -1,60 +1,114 @@
 ## Bandit Level 29 → Level 30
 
-### 🎯 Objective
-Log in to the Bandit game as bandit29 and obtain the password for the next level by examining a different branch of a Git repository.
+
+### 🎯 Objective  
+
+- Log in as `bandit29-git`  
+- Explore all branches of the Git repository  
+- Identify the branch containing the password  
+- Retrieve the password for the next level  
+
 
 ---
 
-### 🔑 Credentials Provided
-Username: bandit29-git  
-Password: Obtained from previous level  
+### 🧭 Quick Action Summary  
+
+- Connect to the Git repository over SSH  
+- Clone the repository  
+- List available branches  
+- Switch to the `dev` branch  
+- Review the commit history  
+- Extract the password  
+
 
 ---
 
-### 🔍 Method of Solve
-The password for the next level is not stored in the main branch of the repository. Instead, it is hidden in a different branch named `dev`. By switching to this branch and checking the commit history, the password can be recovered.
+### 🔑 Credentials Provided  
+
+- **Username:** bandit29-git  
+- **Password:** 4pT1t5DENAyuqnvaYds10e4QLCdjmJ7  
+
 
 ---
 
-### 🧪 Commands Used
-- git clone ssh://bandit29-git@bandit.labs.overthewire.org:2220/home/bandit29-git/repo  
-- cd repo  
-- cat README.md  
-- git branch  
-- git branch -a  
-- git checkout dev  
-- git log -p  
+### 🔍 Method of Solve  
+
+The password is not stored in the main branch of the repository.  
+It exists in a different branch named `dev`, which contains earlier versions of the files.
+
+Steps followed:  
+- Clone the private repository  
+- List all branches  
+- Switch to the `dev` branch  
+- Review commit history  
+- Find the password  
+
 
 ---
 
-### 📸 Screenshots
+### 🧪 Commands Used  
 
-**Cloning the Repository and Checking Available Branches**
+- `git clone ssh://bandit29-git@bandit.labs.overthewire.org:2220/home/bandit29-git/repo`  
+- `cd repo`  
+- `cat README.md`  
+- `git branch`  
+- `git branch -a`  
+- `git checkout dev`  
+- `git log -p`  
 
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `git branch -a` | Lists all branches including remote ones |
+| `git checkout dev` | Switches to the development branch |
+| `git log -p` | Displays commit history and file changes |
+
+
+---
+
+### 📸 Screenshot Evidence  
+
+**Cloning the Repository and Checking Available Branches**  
 ![Bandit Level 29 – Repository](screenshots/level29_1.png)
 
----
-
-**Viewing the Commit History in the Dev Branch to Reveal the Password**
-
+**Viewing the Commit History in the Dev Branch to Reveal the Password**  
 ![Bandit Level 29 – Dev Branch Commit](screenshots/level29_2.png)
 
----
-
-### 🔑 Next Level Password
-qp30ex3VLz5MDG1n91YovTv4Q81TCDZL
 
 ---
 
-### 🧠 Explanation
-The `git clone` command downloads the private repository for bandit29 over SSH.  
-The `cat README.md` command shows that the password is hidden.  
-The `git branch` and `git branch -a` commands list all local and remote branches, revealing the `dev` branch.  
-The `git checkout dev` command switches to the development branch.  
-The `git log -p` command displays the commit history and file differences, where the password is revealed in a previous version of the README file.
+### 🔑 Next Level Password  
+
+```
+qp3oEX3VLz5MDG1n91YowTv4Q8I7CDZL
+```
+
 
 ---
 
-### 🔐 Concept Learned
-This level demonstrates how Git branches can store different versions of data.  
-It shows that sensitive information can exist in other branches even if it is removed from the main branch, highlighting the importance of checking all branches during security audits.
+### 🧠 Explanation  
+
+- The repository contains multiple branches  
+- The `dev` branch includes earlier versions of files  
+- The commit history reveals the password  
+- The password is extracted from a previous commit  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level shows how data can exist across different Git branches.  
+It highlights the need to inspect all branches when searching for sensitive information.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Secrets stored in development branches can still be exposed.  
+All branches must be reviewed and cleaned to protect sensitive data.
