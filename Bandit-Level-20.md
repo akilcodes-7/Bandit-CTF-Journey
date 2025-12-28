@@ -1,45 +1,100 @@
 ## Bandit Level 20 → Level 21
 
-### 🎯 Objective
-Log in to the Bandit game as bandit20 and obtain the password for the next level by interacting with a set-UID network program.
+
+### 🎯 Objective  
+
+- Log in as `bandit20`  
+- Run the set-UID network program  
+- Capture the transmitted password  
+- Retrieve the password for the next level  
+
 
 ---
 
-### 🔑 Credentials Provided
-Username: bandit20  
-Password: Obtained from previous level  
+### 🧭 Quick Action Summary  
+
+- Login as `bandit20`  
+- Start a Netcat listener  
+- Run `suconnect` to send the password  
+- Capture the output  
+
 
 ---
 
-### 🔍 Method of Solve
-A program called `suconnect` runs as bandit21 and sends the next password to a service listening on a specified port.  
-By running a Netcat listener and connecting `suconnect` to it, the password can be intercepted.
+### 🔑 Credentials Provided  
+
+- **Username:** bandit20  
+- **Password:** oqXahG8ZjOVMN9Ghs710WsCfZyXOUbY0  
+
 
 ---
 
-### 🧪 Commands Used
-- nc -lvp 5000  
-- ./suconnect 5000  
+### 🔍 Method of Solve  
+
+A set-UID program named `suconnect` runs with `bandit21` privileges.  
+It sends the next level password to a service listening on a specified port.
+
+Steps followed:  
+- Start a Netcat listener on a chosen port  
+- Run `suconnect` to connect to that port  
+- Capture the transmitted password  
+
 
 ---
 
-### 📸 Screenshot
+### 🧪 Commands Used  
+
+- `nc -lvp 5000`  
+- `./suconnect 5000`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `nc -lvp 5000` | Starts a Netcat listener on port 5000 |
+| `./suconnect 5000` | Sends the password to the specified port |
+
+
+---
+
+### 📸 Screenshot Evidence  
+
 ![Bandit Level 20 Screenshot](screenshots/level20.png)
 
----
-
-### 🔑 Next Level Password
-EeoL1MCra2q0dSkYj561DX7s1CpBuOBt
 
 ---
 
-### 🧠 Explanation
-The `nc -lvp 5000` command starts a Netcat listener on port 5000 to wait for incoming connections.  
-The `./suconnect 5000` command runs a set-UID program that connects to the given port and sends the next level password.  
-When the program connects to the Netcat listener, the password is transmitted and displayed.
+### 🔑 Next Level Password  
+
+```
+Ee0ULMCrq2q0dSKYj561DX7s1CpBuOBt
+```
+
 
 ---
 
-### 🔐 Concept Learned
-This level demonstrates network-based privilege escalation.  
-It shows how a privileged program can send sensitive data over a network connection, which can be intercepted by listening on the correct port.
+### 🧠 Explanation  
+
+- Netcat waits for incoming connections on port 5000  
+- The `suconnect` program connects to that port  
+- The program sends the next level password  
+- The password is displayed in the Netcat listener  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level demonstrates how privileged network programs can transmit sensitive data.  
+It highlights how listening on the correct port can capture that information.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Network services running with elevated privileges must be secured.  
+Otherwise, attackers can intercept sensitive data by listening on exposed ports.
