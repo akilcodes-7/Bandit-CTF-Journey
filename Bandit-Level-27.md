@@ -24,6 +24,7 @@ The password for the next level is stored inside a private Git repository owned 
 ---
 
 ### 📸 Screenshot
+
 ![Bandit Level 27 Screenshot](screenshots/level27.png)
 
 ---
