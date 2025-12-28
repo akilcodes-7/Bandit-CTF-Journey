@@ -23,7 +23,7 @@
 ### 🔑 Credentials Provided  
 
 - **Username:** bandit1  
-- **Password:** Obtained from previous level  
+- **Password:** ZjlJTmM6FvvyRnrB2rfNWOZOTa6ip5If  
 
 
 ---
@@ -54,7 +54,7 @@ Steps followed:
 | Command | Purpose |
 |--------|--------|
 | `ls` | Lists all files in the current directory |
-| `cat ./-` | Reads the file named `-` by treating it as a file instead of an option |
+| `cat ./-` | Reads the file named `-` by treating it as a filename instead of an option |
 
 
 ---
@@ -78,7 +78,7 @@ Steps followed:
 ### 🧠 Explanation  
 
 - The `ls` command reveals a file named `-` in the directory  
-- The `cat ./-` command forces the shell to treat `-` as a filename  
+- The `cat ./-` command forces the shell to treat `-` as a file  
 - This allows the contents of the file to be displayed correctly  
 
 
@@ -86,13 +86,13 @@ Steps followed:
 
 ### 🔐 Concept Learned  
 
-This level demonstrates how Linux handles filenames that start with special characters.  
-It shows why relative paths are important when working with files that could otherwise be interpreted as command options.
+This level demonstrates how Linux handles filenames that begin with special characters.  
+It highlights why relative paths are required to avoid misinterpretation by the shell.
 
 
 ---
 
 ### 🛡️ Security Insight  
 
-Improper handling of special characters in filenames can lead to command errors or unintended behavior.  
-Using explicit paths helps prevent misinterpretation and improves command reliability.
+Files with special characters in their names can cause unexpected command behavior.  
+Using explicit paths prevents accidental misuse and improves command reliability.
