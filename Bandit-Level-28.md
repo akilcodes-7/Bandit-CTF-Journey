@@ -24,9 +24,13 @@ The password for the next level was removed from the current version of the repo
 
 ---
 
-### 📸 Screenshot
+### 📸 Screenshots
 
-![Bandit Level 28 Screenshot](screenshots/level28.png)
+![Bandit Level 28 – Repository](screenshots/level28_1.png)
+
+-
+
+![Bandit Level 28 – Commit History](screenshots/level28_2.png)
 
 ---
 
@@ -38,11 +42,11 @@ The password for the next level was removed from the current version of the repo
 ### 🧠 Explanation
 The `git clone` command connects to the remote Git server over SSH and downloads the private repository.  
 The `cd repo` command moves into the cloned repository directory.  
-The `cat README.md` command shows the current content of the README file, which has the password redacted.  
-The `git log -p` command displays the full commit history along with file differences. By reviewing previous commits, the original version of the README file is found, which contains the password.
+The `cat README.md` command displays the current version of the README file, which has the password removed.  
+The `git log -p` command shows the complete commit history along with file differences. By examining earlier commits, the original README file containing the password is recovered.
 
 ---
 
 ### 🔐 Concept Learned
-This level demonstrates how version control systems retain historical data even after information is removed.  
-It highlights the importance of reviewing commit history when sensitive data has been accidentally committed and later deleted.
+This level demonstrates that deleting sensitive data from a Git repository does not remove it from history.  
+It highlights the importance of reviewing commit history when investigating data leaks and the need for proper secret-handling in version-controlled projects.
