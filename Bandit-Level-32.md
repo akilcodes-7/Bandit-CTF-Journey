@@ -1,48 +1,102 @@
 ## Bandit Level 32 → Level 33
 
-### 🎯 Objective
-Log in to the Bandit game as bandit32 and obtain the password for the next level by escaping a restricted uppercase shell.
+
+### 🎯 Objective  
+
+- Log in as `bandit32`  
+- Escape the uppercase-only shell  
+- Launch a normal Bash shell  
+- Retrieve the password for the next level  
+
 
 ---
 
-### 🔑 Credentials Provided
-Username: bandit32  
-Password: Obtained from previous level  
+### 🧭 Quick Action Summary  
+
+- Login as `bandit32`  
+- Execute `$0` to escape the restricted shell  
+- Start `bash`  
+- Read the password file  
+
 
 ---
 
-### 🔍 Method of Solve
-Bandit32 provides a restricted shell that only accepts uppercase input. To execute normal Linux commands, an environment variable is used to escape the restricted shell and start a real Bash shell.
+### 🔑 Credentials Provided  
+
+- **Username:** bandit32  
+- **Password:** 309RfhaqALVBEZpVb6LYStshZoqoSx5K  
+
 
 ---
 
-### 🧪 Commands Used
-- $0  
-- bash  
-- cat /etc/bandit_pass/bandit33  
+### 🔍 Method of Solve  
+
+The `bandit32` account uses a shell that only accepts uppercase input.  
+By executing the `$0` environment variable, the restricted shell is replaced with a normal shell, allowing standard commands to be run.
+
+Steps followed:  
+- Execute `$0`  
+- Start a Bash shell  
+- Read the password file  
+
 
 ---
 
-### 📸 Screenshot
+### 🧪 Commands Used  
 
-**Escaping the Uppercase Shell and Reading the Password**
+- `$0`  
+- `bash`  
+- `cat /etc/bandit_pass/bandit33`  
 
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `$0` | Spawns a new instance of the current shell |
+| `bash` | Starts a normal Bash shell |
+| `cat bandit33` | Displays the next level password |
+
+
+---
+
+### 📸 Screenshot Evidence  
+
+**Escaping the Uppercase Shell and Reading the Password**  
 ![Bandit Level 32 Screenshot](screenshots/level32.png)
 
+
 ---
 
-### 🔑 Next Level Password
+### 🔑 Next Level Password  
+
+```
 tQdtbs5D5i2vJwk08mEyYETL81z0eJ0
+```
+
 
 ---
 
-### 🧠 Explanation
-The `$0` variable contains the name of the current shell. Executing `$0` runs a new instance of the shell without the uppercase restriction.  
-The `bash` command starts a normal interactive Bash shell.  
-The `cat /etc/bandit_pass/bandit33` command displays the password file for the next level.
+### 🧠 Explanation  
+
+- `$0` launches a new shell without the uppercase restriction  
+- `bash` starts a standard interactive shell  
+- The password file is read using `cat`  
+
 
 ---
 
-### 🔐 Concept Learned
-This level demonstrates how restricted shells can be bypassed using environment variables.  
-It highlights the importance of understanding how shells work internally and how improper restrictions can be exploited.
+### 🔐 Concept Learned  
+
+This level shows how restricted shells can be bypassed.  
+It highlights how environment variables can be leveraged to escape limited environments.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Shell restrictions must be carefully implemented.  
+Weak restrictions can be bypassed using built-in shell features.
