@@ -28,7 +28,7 @@ The password for the next level was removed from the current version of the repo
 
 ![Bandit Level 28 – Repository](screenshots/level28_1.png)
 
--
+---
 
 ![Bandit Level 28 – Commit History](screenshots/level28_2.png)
 
