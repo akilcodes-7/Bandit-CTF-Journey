@@ -1,30 +1,99 @@
-## Bandit Level 11 → Level 12
+## Bandit Level 10 → Level 11
 
-### 🎯 Objective
-Log in to the Bandit game as bandit11 and obtain the password for the next level by decoding a text that is encrypted using a simple letter rotation.
 
-### 🔑 Credentials Provided
-Username: bandit11  
-Password: Obtained from previous level  
+### 🎯 Objective  
 
-### 🔍 Method of Solve
-The password for the next level is stored in a file named `data.txt` that is encoded using ROT13. By applying a character translation, the original text can be revealed.
+- Log in as `bandit10`  
+- Locate the Base64-encoded file  
+- Decode the file  
+- Retrieve the password for the next level  
 
-### 🧪 Commands Used
-- ls -alph  
-- cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'  
 
-![Bandit Level 11 Screenshot](screenshots/level11.png)
+---
 
-### 🔑 Next Level Password
-7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+### 🧭 Quick Action Summary  
 
-### 🧠 Explanation
-The `ls -alph` command lists the files in the directory and shows the file `data.txt`.  
-The `cat data.txt` command reads the encoded contents of the file.  
-The output is piped to `tr 'A-Za-z' 'N-ZA-Mn-za-m'`, which performs a ROT13 transformation, converting each letter to its decoded form.  
-The decoded output reveals the password for the next level.
+- Login as `bandit10`  
+- Identify `data.txt`  
+- Decode the file using Base64  
+- Extract the password  
 
-### 🔐 Concept Learned
-This level demonstrates how simple substitution ciphers such as ROT13 can be decoded using standard Linux tools.  
-It highlights the usefulness of text processing utilities like `tr` for decrypting or transforming encoded data.
+
+---
+
+### 🔑 Credentials Provided  
+
+- **Username:** bandit10  
+- **Password:** FGUW5iLLvJrXx9kMYMnlN4MgbpfMiqey  
+
+
+---
+
+### 🔍 Method of Solve  
+
+The password for the next level is stored in a file named `data.txt`.  
+This file is encoded using Base64, which must be decoded to reveal the original plaintext password.
+
+Steps followed:  
+- List the files  
+- Decode the Base64 content  
+- Read the decoded output  
+
+
+---
+
+### 🧪 Commands Used  
+
+- `ls -alph`  
+- `base64 -d data.txt`  
+
+
+---
+
+### 🧩 Command Purpose  
+
+| Command | Purpose |
+|--------|--------|
+| `ls -alph` | Lists all files including hidden ones |
+| `base64 -d data.txt` | Decodes the Base64-encoded file |
+
+
+---
+
+### 📸 Screenshot Evidence  
+
+![Bandit Level 10 Screenshot](screenshots/level10.png)
+
+
+---
+
+### 🔑 Next Level Password  
+
+```
+dtR173fZKb0RRSDFSgsq2RwhpNVj3qR
+```
+
+
+---
+
+### 🧠 Explanation  
+
+- The file `data.txt` contains Base64-encoded data  
+- The `base64 -d` command decodes the content back to its original form  
+- The decoded output contains the password for the next level  
+
+
+---
+
+### 🔐 Concept Learned  
+
+This level demonstrates how encoded data can be decoded using standard Linux utilities.  
+It highlights the importance of recognizing common encoding formats such as Base64 during security analysis.
+
+
+---
+
+### 🛡️ Security Insight  
+
+Encoding is not encryption.  
+Sensitive data stored in encoded form can be easily decoded and exposed if not properly protected.
