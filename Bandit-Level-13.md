@@ -46,7 +46,7 @@ Steps followed:
 
 ### 🧪 Commands Used  
 
-- `scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private`  
+- `scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private .`  
 - `chmod 600 sshkey.private`  
 - `ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220`  
 - `cd /etc/bandit_pass`  
