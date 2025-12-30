@@ -1,64 +1,59 @@
-## Bandit Level 25 → Level 26
+## Bandit Level 26 → Level 27
 
 
 ### 🎯 Objective  
 
-- Log in as `bandit25`  
-- Obtain the SSH private key  
-- Access the restricted `bandit26` account  
-- Escape the restricted shell  
-- Retrieve the password for the next level  
+- Log in as `bandit26` using the provided SSH key  
+- Escape the restricted pager environment  
+- Locate the privileged helper binary  
+- Use it to retrieve the password for the next level  
 
 
 ---
 
 ### 🧭 Quick Action Summary  
 
-- Login as `bandit25`  
-- Copy the SSH private key  
-- Connect as `bandit26`  
-- Trigger the `more` pager  
-- Escape into a Bash shell  
-- Read the password  
+- Connect to the server using the private key  
+- Escape the `more` pager into a real shell  
+- Locate the `bandit27-do` binary  
+- Use it to read the password file  
 
 
 ---
 
 ### 🔑 Credentials Provided  
 
-- **Username:** bandit25  
-- **Password:** iCi86ttT4KSNe1armKiwbQNmB3YJP3q4  
+- **Username:** bandit26  
+- **Password:** *Obtained from previous level*  
+- **Server:** bandit.labs.overthewire.org  
+- **Port:** 2220  
 
 
 ---
 
 ### 🔍 Method of Solve  
 
-The `bandit26` account uses a restricted program instead of a normal shell.  
-By triggering the `more` pager and escaping into Vim, a real Bash shell can be spawned.
+The `bandit26` account logs into a restricted pager environment instead of a normal shell.  
+By escaping the pager into a shell, normal command execution becomes possible.  
+A helper binary named `bandit27-do` can then be used to execute commands as `bandit27`.
 
 Steps followed:  
-- Copy the SSH private key  
-- Log in as `bandit26`  
-- Force `more` into interactive mode  
-- Escape to Vim  
-- Launch a Bash shell  
-- Read the password file  
+- Log in using the SSH private key  
+- Escape the pager into a shell  
+- Identify the helper binary  
+- Use it to read the password file  
 
 
 ---
 
 ### 🧪 Commands Used  
 
-- `ls`  
-- `file bandit26.sshkey`  
-- `scp -P 2220 bandit25@bandit.labs.overthewire.org:/home/bandit25/bandit26.sshkey .`  
-- `chmod 600 bandit26.sshkey`  
 - `ssh -i bandit26.sshkey bandit26@bandit.labs.overthewire.org -p 2220`  
-- `v`  
 - `:set shell=/bin/bash`  
 - `:shell`  
-- `cat /etc/bandit_pass/bandit26`  
+- `ls`  
+- `./bandit27-do`  
+- `./bandit27-do cat /etc/bandit_pass/bandit27`  
 
 
 ---
@@ -67,31 +62,23 @@ Steps followed:
 
 | Command | Purpose |
 |--------|--------|
-| `scp` | Copies the private key from the remote server |
-| `ssh -i` | Logs in using the private key |
-| `v` | Opens Vim from the pager |
-| `:shell` | Launches a real shell from Vim |
-| `cat bandit26` | Reads the next level password |
+| `ssh -i bandit26.sshkey` | Logs in using the SSH private key |
+| `:shell` | Escapes the pager into a real shell |
+| `bandit27-do` | Executes commands as user `bandit27` |
+| `cat /etc/bandit_pass/bandit27` | Displays the next level password |
 
 
 ---
 
 ### 📸 Screenshot Evidence  
 
-**Step 1 – Locating the SSH Private Key**  
-![Bandit Level 25 – Key Found](screenshots/level25_1.png)
+![Bandit Level 26 Screenshot - Part 1](screenshots/level26_1.png) 
 
-**Step 2 – Copying the Key Using SCP**  
-![Bandit Level 25 – SCP Transfer](screenshots/level25_2.png)
+![Bandit Level 26 Screenshot - Part 2](screenshots/level26_2.png)  
 
-**Step 3 – Logging in and Triggering the `more` Pager**  
-![Bandit Level 25 – Restricted Shell](screenshots/level25_3.png)
+![Bandit Level 26 Screenshot - Part 3](screenshots/level26_3.png)
 
-**Step 4 – Escaping to Vim and Opening a Bash Shell**  
-![Bandit Level 25 – Vim Escape](screenshots/level25_4.png)
-
-**Step 5 – Reading the Next Level Password**  
-![Bandit Level 25 – Password](screenshots/level25_5.png)
+![Bandit Level 26 Screenshot - Part 3](screenshots/level26_4.png)
 
 
 ---
@@ -99,7 +86,7 @@ Steps followed:
 ### 🔑 Next Level Password  
 
 ```
-0773xxkkOMxfdqOfPRv9L3jBUOGCZ
+upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB
 ```
 
 
@@ -107,24 +94,23 @@ Steps followed:
 
 ### 🧠 Explanation  
 
-- The private key allows access to `bandit26`  
-- The restricted program launches the `more` pager  
-- `more` can be escaped into Vim  
-- Vim allows spawning a full shell  
-- The password is read from the system directory  
+- The SSH key allows login but opens a restricted pager  
+- The pager can be escaped into a full shell  
+- The `bandit27-do` binary runs commands as `bandit27`  
+- Using it reveals the password from the system file  
 
 
 ---
 
 ### 🔐 Concept Learned  
 
-This level demonstrates how restricted shells can be bypassed.  
-It shows how pagers and editors can be abused to gain full command-line access.
+This level demonstrates restricted environment bypassing.  
+It shows how pagers and helper binaries can be exploited to gain higher privileges.
 
 
 ---
 
 ### 🛡️ Security Insight  
 
-Restricted environments must prevent editor escapes.  
-Otherwise, attackers can bypass sandboxed shells and gain full control.
+Restricted shells and pagers must be carefully hardened.  
+Helper binaries that execute commands as other users can lead to privilege escalation if misused.
